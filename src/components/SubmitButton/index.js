@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import * as Styled from './styles';
 
 function SubmitButton({ text }) {
-  return <Styled.Container>{text}</Styled.Container>;
+  return <Styled.Container type="submit">{text}</Styled.Container>;
 }
 
 export default SubmitButton;

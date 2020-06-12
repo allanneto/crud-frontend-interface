@@ -4,6 +4,8 @@ import * as Yup from 'yup';
 
 import Button from '../../components/SubmitButton';
 import * as Styled from './styles';
+
+import history from '../../services/history';
 import Logo from '../../assets/Logo.svg';
 
 function Login() {
@@ -14,15 +16,36 @@ function Login() {
     password: Yup.string().required('A senha é obrigatória.'),
   });
 
+  const handleNavigate = () => {
+    // const user = {
+    //   name: 'Allan',
+    //   token: '2sowtoken',
+    // };
+
+    // localStorage.setItem('user', JSON.stringify(user));
+
+    history.push('/usuarios');
+  };
+
   return (
     <Styled.Container>
       <img src={Logo} alt="" />
-      <Form onSubmit="" schema={schema}>
+      <Form onSubmit={handleNavigate} schema={schema}>
         <Styled.Label>E-mail</Styled.Label>
-        <Input name="email" type="text" placeholder="exemplo@email.com" />
+        <Input
+          data-testId="email-input"
+          name="email"
+          type="text"
+          placeholder="exemplo@email.com"
+        />
 
         <Styled.Label>Senha</Styled.Label>
-        <Input name="password" type="password" placeholder="Insira a senha" />
+        <Input
+          data-testId="password-input"
+          name="password"
+          type="password"
+          placeholder="Insira a senha"
+        />
 
         <Button text="ENTRAR" />
       </Form>

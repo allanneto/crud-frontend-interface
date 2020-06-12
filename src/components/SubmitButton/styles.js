@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 import { lighten, darken } from 'polished';
 
-export const Container = styled.button.attrs({
-  type: 'submit',
-})`
+export const Container = styled.button.attrs({})`
   display: flex;
   align-items: center;
   justify-content: center;
