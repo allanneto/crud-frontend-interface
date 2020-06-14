@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import colors from '../../styles/colors';
 
 export const Container = styled.div`
   display: flex;
@@ -6,7 +7,7 @@ export const Container = styled.div`
   flex-direction: column;
 
   background: #eee;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 
   max-width: 400px;
   border-radius: 8px;
@@ -45,4 +46,13 @@ export const Label = styled.label`
   font-weight: bold;
   margin-top: 10px;
   margin-bottom: 5px;
+`;
+
+export const SignUp = styled.span`
+  color: ${colors.tertiary};
+  font-weight: bold;
+  margin-top: 15px;
+  font-size: 18px;
+
+  cursor: pointer;
 `;

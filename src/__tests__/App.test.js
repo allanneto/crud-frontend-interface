@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, act, waitFor, fireEvent } from '@testing-library/react';
+import { render, act, fireEvent } from '@testing-library/react';
 import App from '../App';
 
 const wait = (amount = 0) => {
@@ -14,7 +14,7 @@ const actWait = async (amount = 0) => {
 
 describe('App Component', () => {
   it('Find email label', async () => {
-    const { getByText, getByTestId } = render(<App />);
+    const { getByText } = render(<App />);
     const emailLabel = getByText('E-mail');
 
     expect(emailLabel).toBeInTheDocument();
@@ -68,23 +68,17 @@ describe('App Component', () => {
     expect(passwordError).toBeInTheDocument();
   });
 
-  it('Form submission with all fields filled should redirect to users', async () => {
-    const { getByText, getByTestId } = render(<App />);
+  it('should be able to signup', async () => {
+    const { getByTestId, getByLabelText } = render(<App />);
 
-    const emailInput = getByTestId('email-input');
-    const passwordInput = getByTestId('password-input');
+    const signup = getByTestId('register-input');
 
-    fireEvent.change(emailInput, { target: { value: 'allan@allan.com' } });
-    fireEvent.change(passwordInput, { target: { value: 'allan' } });
+    fireEvent.click(signup);
 
     await actWait();
 
-    fireEvent.click(getByText('ENTRAR'));
+    const cpfField = getByLabelText('CPF');
 
-    await actWait();
-
-    const redirectText = getByText('CHEGOU HEIN');
-
-    expect(redirectText).toBeInTheDocument();
+    expect(cpfField).toBeInTheDocument();
   });
 });

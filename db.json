@@ -1,0 +1,46 @@
+{
+  "usuarios": [
+    {
+      "nome": "Allan",
+      "email": "allan@allan.com",
+      "cpf": "12313212313131",
+      "senha": "12313123",
+      "endereco": {
+        "cep": "13630-100",
+        "rua": "Rua Andradas",
+        "numero": "123123",
+        "bairro": "Centro",
+        "cidade": "Pirassununga"
+      },
+      "id": 1
+    },
+    {
+      "nome": "Allan",
+      "email": "allan.como@allan.com",
+      "cpf": "12343767981123",
+      "senha": "asdasda",
+      "endereco": {
+        "cep": "13630-100",
+        "rua": "Rua Andradas",
+        "numero": "123",
+        "bairro": "Centro",
+        "cidade": "Pirassununga"
+      },
+      "id": 2
+    },
+    {
+      "nome": "Allan",
+      "email": "allan.coom@ala.com",
+      "cpf": "666.666.666-66",
+      "senha": "1231231",
+      "endereco": {
+        "cep": "13630-100",
+        "rua": "Rua Andradas",
+        "numero": "1231",
+        "bairro": "Centro",
+        "cidade": "Pirassununga"
+      },
+      "id": 3
+    }
+  ]
+}
