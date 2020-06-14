@@ -8,11 +8,12 @@ import Modal from '../../components/Modal';
 import Register from '../../components/Forms/Register';
 
 import * as Styled from './styles';
-
+import api from '../../services/api';
 import Logo from '../../assets/Logo.svg';
 
 function Login() {
   const [open, setOpen] = useState(false);
+  const [error, setError] = useState(false);
 
   const schema = Yup.object().shape({
     email: Yup.string()
@@ -21,20 +22,40 @@ function Login() {
     password: Yup.string().required('A senha é obrigatória.'),
   });
 
-  const handleNavigate = () => {
-    const user = {
-      name: 'Allan',
-      token: '2sowtoken',
-    };
+  const handleNavigate = async (data) => {
+    const response = await api.get('/usuarios');
 
-    localStorage.setItem('user', JSON.stringify(user));
+    const users = response.data;
+
+    const userIndex = users.findIndex((user) => user.email === data.email);
+
+    console.log(userIndex);
+
+    if (userIndex < 0) {
+      return setError((current) => !current);
+    }
+
+    const user = users[userIndex];
+
+    if (data.password !== user.senha) {
+      return setError((current) => !current);
+    }
+
+    localStorage.setItem(
+      'user',
+      JSON.stringify({
+        name: user.nome,
+        email: user.email,
+        token: 'test2sow',
+      })
+    );
 
     document.location.reload(true);
   };
 
   return (
     <>
-      <Styled.Container>
+      <Styled.Container error={error}>
         <img src={Logo} alt="" />
         <Form onSubmit={handleNavigate} schema={schema}>
           <Styled.Label>E-mail</Styled.Label>

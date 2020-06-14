@@ -1,7 +1,9 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import colors from '../../styles/colors';
 
-export const Container = styled.div`
+export const Container = styled.div.attrs((props) => ({
+  error: props.error,
+}))`
   display: flex;
   padding: 20px;
   flex-direction: column;
@@ -30,6 +32,13 @@ export const Container = styled.div`
 
       padding: 5px;
       width: 100%;
+
+      ${(props) =>
+        props.error
+          ? css`
+              border: 1px solid #ff0000;
+            `
+          : css``}
     }
 
     span {
