@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components';
+import PerfectScrollbar from 'react-perfect-scrollbar';
 import { FaUserSecret } from 'react-icons/fa';
 import { darken } from 'polished';
+import SimpleInput from '../../components/Forms/SimpleInput';
 
 import colors from '../../styles/colors';
 
@@ -21,8 +23,7 @@ export const Profile = styled.div`
   align-items: center;
   padding: 10px;
 
-  width: 500px;
-  max-width: 550px;
+  max-width: 700px;
   background: ${colors.quaternary};
   border-radius: 8px;
 
@@ -64,22 +65,49 @@ export const VWrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;
+
 export const Label = styled.strong`
   margin-top: 8px;
 `;
 
 export const Info = styled.span``;
 
+export const SearchBar = styled.div`
+  margin-top: 25px;
+  display: flex;
+  align-items: center;
+
+  input {
+    height: 30px;
+
+    font-size: 16px;
+
+    padding: 10px;
+    border: 1px solid ${colors.baseText};
+    border-radius: 4px;
+  }
+
+  svg {
+    margin-left: 10px;
+    cursor: pointer;
+  }
+`;
+
+export const Scroll = styled(PerfectScrollbar)`
+  max-height: 500px;
+  margin: 25px 0;
+  padding-right: 10px;
+`;
+
 export const Table = styled.table`
   width: 100%;
-  margin-top: 20px;
+  position: relative;
   border-collapse: collapse;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 `;
 
 export const HeadRow = styled.tr`
   margin-top: 20px;
-
   opacity: 1;
 
   width: 100%;
