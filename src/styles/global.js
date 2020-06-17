@@ -25,6 +25,7 @@ html, body, #root{
 
 body {
   -webkit-font-smoothing: antialiased;
+  background: #edb88b;
 }
 
 a{

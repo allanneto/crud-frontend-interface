@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Form, Input } from '@rocketseat/unform';
-import { useHistory } from 'react-router-dom';
 import * as Yup from 'yup';
 
 import Button from '../../components/SubmitButton';
