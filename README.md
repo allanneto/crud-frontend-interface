@@ -42,9 +42,9 @@ Extras:
   - [Unform](https://unform.dev/)
   - [Axios](https://github.com/axios/axios)
   - [Yup](https://github.com/jquense/yup)
-  - [Toast Notification](https://github.com/jossmac/react-toast-notifications)
+  - [React Toastify](https://github.com/fkhadra/react-toastify)
 - Estilos
-  - [Polished](https://editorconfig.org/)
+  - [Polished](https://polished.js.org/)
   - [React-Icons](https://react-icons.github.io/react-icons/)
   - [Styled-Components](https://styled-components.com/)
   - [EditorConfig](https://editorconfig.org/)
@@ -77,7 +77,7 @@ npm install
 npm start
 ```
 
-Assim que o processo terminar, automaticamente será aberta no seu navegador a página `localhost:3000` contendo o Projeto, recomendo que cadastre para ter continuar a utilizar a aplicação.
+Assim que o processo terminar, automaticamente será aberta no seu navegador a página `localhost:3000` contendo o Projeto, recomendo que cadastre um novo usuário para ter continuar a utilizar a aplicação.
 
 ## :thinking: Como contribuir
 
