@@ -1,30 +1,30 @@
-import React, { useEffect, useState } from 'react';
-import { FaTrashAlt, FaEdit, FaSearch } from 'react-icons/fa';
-import { toast } from 'react-toastify';
+import React, { useEffect, useState } from "react";
+import { FaTrashAlt, FaEdit, FaSearch } from "react-icons/fa";
+import { toast } from "react-toastify";
 
-import Modal from '../../components/Modal';
-import Update from '../../components/Forms/Update';
+import Modal from "../../components/Modal";
+import Update from "../../components/Forms/Update";
 
-import * as Styled from './styles';
-import api from '../../services/api';
+import * as Styled from "./styles";
+import api from "../../services/api";
 
 function Main() {
   const [users, setUsers] = useState([]);
   const [open, setOpen] = useState(false);
   const [user, setUser] = useState({
-    nome: '--------',
-    cpf: '--------',
-    email: '--------',
+    nome: "--------",
+    cpf: "--------",
+    email: "--------",
     endereco: {
-      rua: '--------',
-      numero: '--------',
-      bairro: '--------',
-      cidade: '--------',
+      rua: "--------",
+      numero: "--------",
+      bairro: "--------",
+      cidade: "--------",
     },
   });
-  const [option, setOption] = useState('');
-  const [selected, setSelected] = useState('');
-  const [search, setSearch] = useState('');
+  const [option, setOption] = useState("");
+  const [selected, setSelected] = useState("");
+  const [search, setSearch] = useState("");
   const [end, setEnd] = useState(20);
 
   const loadUsers = async () => {
@@ -53,14 +53,14 @@ function Main() {
     loadUsers();
     setOpen(false);
 
-    return toast.success('Usuario deletado com sucesso!');
+    return toast.success("Usuario deletado com sucesso!");
   };
 
   const modalOption = () => {
-    if (option === 'edit') {
+    if (option === "edit") {
       return <Update setOpen={setOpen} loggedUser={user} />;
     }
-    if (option === 'delete') {
+    if (option === "delete") {
       return (
         <Styled.DeleteBox>
           <Styled.Title>Confirmar exclusão</Styled.Title>
@@ -76,14 +76,14 @@ function Main() {
     if (search.length === 0) {
       loadUsers();
 
-      return toast.error('Por favor inserir um nome para efetuar a busca.');
+      return toast.error("Por favor inserir um nome para efetuar a busca.");
     }
 
     const response = await api.get(`/usuarios?q=${search}`);
 
     setUsers(response.data);
 
-    return toast.success('Busca finalizada.');
+    return toast.success("Busca finalizada.");
   };
 
   const handleScroll = async () => {
@@ -91,7 +91,7 @@ function Main() {
     const newEnd = end + 20;
 
     const response = await api.get(
-      `/usuarios?_start=${newStart}&_end=${newEnd}`
+      `/usuarios?_start=${newStart}&_end=${newEnd}`,
     );
 
     console.log(response.data);
@@ -119,7 +119,7 @@ function Main() {
             <Styled.Info>{user.email}</Styled.Info>
             <Styled.Label>Endereço</Styled.Label>
             <Styled.Info>
-              {user.endereco.rua}, {user.endereco.numero} -{' '}
+              {user.endereco.rua}, {user.endereco.numero} -{" "}
               {user.endereco.bairro}
             </Styled.Info>
             <Styled.Label>Cidade</Styled.Label>
@@ -142,40 +142,42 @@ function Main() {
                 <Styled.Head>Cidade</Styled.Head>
                 <Styled.Head>Ações</Styled.Head>
               </Styled.HeadRow>
-              {users.length === 0 ? (
-                <Styled.Row>
-                  <Styled.Item />
-                  <Styled.Item />
-                  <Styled.Item />
-                  <Styled.Item />
-                  <Styled.Item />
-                </Styled.Row>
-              ) : (
-                users.map((user) => (
-                  <Styled.Row
-                    value={user.id}
-                    selected={selected}
-                    onClick={() => handleSelect(user)}
-                  >
-                    <Styled.Item>{user.nome}</Styled.Item>
-                    <Styled.Item>{user.cpf}</Styled.Item>
-                    <Styled.Item>{user.email}</Styled.Item>
-                    <Styled.Item>{user.endereco.cidade}</Styled.Item>
-                    <Styled.Item>
-                      <FaEdit
-                        onClick={() => handleOpen('edit')}
-                        size={15}
-                        color="#7159c1"
-                      />
-                      <FaTrashAlt
-                        onClick={() => handleOpen('delete')}
-                        size={15}
-                        color="#b61316"
-                      />
-                    </Styled.Item>
+              {users.length === 0
+                ? (
+                  <Styled.Row>
+                    <Styled.Item />
+                    <Styled.Item />
+                    <Styled.Item />
+                    <Styled.Item />
+                    <Styled.Item />
                   </Styled.Row>
-                ))
-              )}
+                )
+                : (
+                  users.map((user) => (
+                    <Styled.Row
+                      value={user.id}
+                      selected={selected}
+                      onClick={() => handleSelect(user)}
+                    >
+                      <Styled.Item>{user.nome}</Styled.Item>
+                      <Styled.Item>{user.cpf}</Styled.Item>
+                      <Styled.Item>{user.email}</Styled.Item>
+                      <Styled.Item>{user.endereco.cidade}</Styled.Item>
+                      <Styled.Item>
+                        <FaEdit
+                          onClick={() => handleOpen("edit")}
+                          size={15}
+                          color="#7159c1"
+                        />
+                        <FaTrashAlt
+                          onClick={() => handleOpen("delete")}
+                          size={15}
+                          color="#b61316"
+                        />
+                      </Styled.Item>
+                    </Styled.Row>
+                  ))
+                )}
             </tbody>
           </Styled.Table>
         </Styled.Scroll>

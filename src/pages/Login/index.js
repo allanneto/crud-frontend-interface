@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { Form, Input } from '@rocketseat/unform';
-import * as Yup from 'yup';
+import React, { useState } from "react";
+import { Form, Input } from "@rocketseat/unform";
+import * as Yup from "yup";
 
-import Button from '../../components/SubmitButton';
-import Modal from '../../components/Modal';
-import Register from '../../components/Forms/Register';
+import Button from "../../components/SubmitButton";
+import Modal from "../../components/Modal";
+import Register from "../../components/Forms/Register";
 
-import * as Styled from './styles';
-import api from '../../services/api';
-import Logo from '../../assets/Logo.svg';
+import * as Styled from "./styles";
+import api from "../../services/api";
+import Logo from "../../assets/Logo.svg";
 
 function Login() {
   const [open, setOpen] = useState(false);
@@ -16,13 +16,13 @@ function Login() {
 
   const schema = Yup.object().shape({
     email: Yup.string()
-      .email('Insira um e-mail válido.')
-      .required('O e-mail é obrigatório.'),
-    password: Yup.string().required('A senha é obrigatória.'),
+      .email("Insira um e-mail válido.")
+      .required("O e-mail é obrigatório."),
+    password: Yup.string().required("A senha é obrigatória."),
   });
 
   const handleNavigate = async (data) => {
-    const response = await api.get('/usuarios');
+    const response = await api.get("/usuarios");
 
     const users = response.data;
 
@@ -41,12 +41,12 @@ function Login() {
     }
 
     localStorage.setItem(
-      'user',
+      "user",
       JSON.stringify({
         name: user.nome,
         email: user.email,
-        token: 'test2sow',
-      })
+        token: "test2sow",
+      }),
     );
 
     document.location.reload(true);

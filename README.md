@@ -1,68 +1,97 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">
+  CRUDev
+</h1>
 
-## Available Scripts
+<h2 align="center">
+  💻 Interface CRUD básica
+</h2>
 
-In the project directory, you can run:
+<p align="center">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/allanneto/crud-frontend-interface">
 
-### `yarn start`
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/allanneto/crud-frontend-interface">
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+  <a href="https://github.com/allanneto/crud-frontend-interface/commits/master">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/allanneto/crud-frontend-interface">
+  </a>
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
+</p>
 
-### `yarn test`
+<p align="center">
+  <a href="#rocket-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#pushpin-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#computer-instalacao">Instalação</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#thinking-como-contribuir">Como contribuir</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#memo-licença">Licença</a>
+</p>
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br>
 
-### `yarn build`
+## :rocket: Tecnologias
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Esse projeto tem como base as seguintes tecnlogias:
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- [React](https://reactjs.org)
+- [JSON-Server](https://github.com/typicode/json-server)
+- [Jest](https://jestjs.io/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Extras:
 
-### `yarn eject`
+- Main Libs
+  - [Unform](https://unform.dev/)
+  - [Axios](https://github.com/axios/axios)
+  - [Yup](https://github.com/jquense/yup)
+  - [Toast Notification](https://github.com/jossmac/react-toast-notifications)
+- Estilos
+  - [Polished](https://editorconfig.org/)
+  - [React-Icons](https://react-icons.github.io/react-icons/)
+  - [Styled-Components](https://styled-components.com/)
+  - [EditorConfig](https://editorconfig.org/)
+  - [ESLint](https://eslint.org/)
+  - [Prettier](https://prettier.io/)
+- Softwares
+  - [VSCode](https://code.visualstudio.com/)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## :pushpin: Projeto
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+O **CRUDev** é um projeto de teste para uma vaga de Dev.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+O projeto foi desenvolvido de acordo com as instruções contidas no arquivo de base para a aplicação dos testes.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## :computer: Instalação
 
-## Learn More
+O **Backend** foi simulado com o json-server para as funcionalidades da aplicação serem testadas.
+<br>
+Iniciando o backend: <br>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+json-server --watch db.json --delay 2000 --port 5000
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Iniciando o **Frontend** em **ReactJS**:
+<br>
 
-### Code Splitting
+```bash
+npm install
+npm start
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+Assim que o processo terminar, automaticamente será aberta no seu navegador a página `localhost:3000` contendo o Projeto, recomendo que cadastre para ter continuar a utilizar a aplicação.
 
-### Analyzing the Bundle Size
+## :thinking: Como contribuir
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+- Faça um fork desse repositório;
+- Cria uma branch com a sua feature: `git checkout -b minha-feature`;
+- Faça commit das suas alterações: `git commit -m 'feat: Minha nova feature'`;
+- Faça push para a sua branch: `git push origin minha-feature`.
 
-### Making a Progressive Web App
+Depois que o merge da sua pull request for feito, você pode deletar a sua branch.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+## :memo: Licença
 
-### Advanced Configuration
+Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+---
 
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Feito com 💜 by **Allan Neto**
